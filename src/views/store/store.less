@@ -22,6 +22,10 @@
       }
     }
 
+    .van-search__action {
+      color: #00A862;
+    }
+
   }
 
   #Map {
@@ -29,7 +33,7 @@
   }
 
   .List {
-    height: calc(60% - 100px);
+    height: calc(60% - 150px);
     overflow: scroll;
 
     li {
@@ -38,26 +42,62 @@
       justify-content: space-between;
       padding: 16px 20px;
 
-      i {
-        font-size: 24px;
+      .Number {
+        width: 24px;
+        position: relative;
+
+        span {
+          position: absolute;
+          text-align: center;
+          color: white;
+          width: 100%;
+          font-size: 1rem;
+          z-index: 1;
+        }
+
+        img {
+          position: relative;
+          right: auto;
+          top: 0;
+          width: 24px;
+        }
+
       }
 
       .van-icon-info-o {
         color: #4DC291;
+        font-size: 24px;
       }
 
       .text {
         margin: 0 10px;
         flex: 1;
 
-       p {
+        h6 {
+          font-weight: bold;
+          font-size: 17px;
+          display: flex;
+          align-items: center;
+
+          img:first-child {
+            width: 28px;
+          }
+
+          img {
+            margin-left: 4px;
+            width: 40px;
+            vertical-align: middle;
+          }
+
+        }
+
+        p, b {
          margin: 10px 0;
-       }
-
+         color: rgba(0, 0, 0, 0.56);
+         font-size: 14px;
+        }
       }
-
     }
-
   }
 
   .Loading {
