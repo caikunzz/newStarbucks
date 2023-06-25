@@ -45,6 +45,13 @@ module.exports = {
         test: /\.json$/,
         type: 'asset/resource'
       },
+      {
+        test: /\.png$/,
+        type: 'asset/resource',
+        generator: {
+          filename: '[name][ext]'
+        }
+      },
     ],
   },
   mode: process.env.NODE_ENV,
