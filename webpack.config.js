@@ -45,6 +45,8 @@ module.exports = {
         test: /\.json$/,
         type: 'asset/resource'
       },
+<<<<<<< HEAD
+=======
       {
         test: /\.png$/,
         type: 'asset/resource',
@@ -52,6 +54,7 @@ module.exports = {
           filename: '[name][ext]'
         }
       },
+>>>>>>> 08cf7636e8fe785e28c29454b5725afbaff6f609
     ],
   },
   mode: process.env.NODE_ENV,

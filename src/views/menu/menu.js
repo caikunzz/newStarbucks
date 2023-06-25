@@ -1048,32 +1048,20 @@ let menu = [
 ];
 const parent = document.querySelector('section');
 const ul = document.querySelector('.head_ul');
-// window.addEventListener('resize', () => {
-//   let mylis = document.querySelectorAll('.section_ul>li');
-//   if (document.documentElement.clientWidth > 640) {
-//     for (let i = 0; i < list.length; i++) {
-//       mylis[i].style.width = '33.3333333%';
-//       list[i].style.height = list[i].offsetWidth + 'px';
-//     }
-//   } else {
-//     for (let i = 0; i < list.length; i++) {
-//       mylis[i].style.width = '45%';
-//       list[i].style.height = list[i].offsetWidth + 'px';
-//     }
-//   }
-// });
-// const xhr = new XMLHttpRequest(); // 创建 XMLHttpRequest 对象
-// const url = './menu.json'; // 远程数据的 URL 地址
-//json数据
-// xhr.open('GET', url);
-// xhr.send();
-// xhr.onreadystatechange = function () {
-//   if (xhr.readyState === 4 && xhr.status === 200) {
-    // 判断请求是否成功完成
-    // const data = JSON.parse(xhr.responseText); // 解析服务器返回的数据
-    // 将数据显示在页面上
-    
-// };
+window.addEventListener('resize', () => {
+  let mylis = document.querySelectorAll('.section_ul>li');
+  if (document.documentElement.clientWidth > 640) {
+    for (let i = 0; i < list.length; i++) {
+      mylis[i].style.width = '33.3333333%';
+      list[i].style.height = list[i].offsetWidth + 'px';
+    }
+  } else {
+    for (let i = 0; i < list.length; i++) {
+      mylis[i].style.width = '45%';
+      list[i].style.height = list[i].offsetWidth + 'px';
+    }
+  }
+});
 class Menu {
   constructor(arr) {
     this.arr = arr;
