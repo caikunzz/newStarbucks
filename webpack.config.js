@@ -9,6 +9,7 @@ module.exports = {
     account:'./src/views/account/account.js',
     home:'./src/views/home/home.js',
     menu:'./src/views/menu/menu.js',
+    menujson:'./src/views/menu/menu.json',
     more:'./src/views/more/more.js',
     store:'./src/views/store/store.js',
     test:'./src/views/test/test.js',
@@ -39,6 +40,10 @@ module.exports = {
       {
         test: /\.(woff | eot | ttf | otf | svg)$/,
         type: 'asset/resource',
+      },
+      {
+        test: /\.json$/,
+        type: 'asset/resource'
       },
     ],
   },
