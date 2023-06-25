@@ -1,6 +1,8 @@
 
 import './account.css';
-
+import src from './account_bg.png';
+import slidersrc from './slider_bg.png';
+import tarsrc from './tar.png'
 
 
 const userInp = document.querySelector("#username");
@@ -69,8 +71,18 @@ lab.addEventListener('click', function () {
 
 const tar = document.querySelector(".tar");
 const drp = document.querySelector(".drp");
-const mask = document.querySelector('.mask')
-const slider = document.querySelector('.slider')
+const mask = document.querySelector('.mask');
+const slider = document.querySelector('.slider');
+const bg = document.querySelector('.bg');
+bg.src=src;
+let crtimg = document.createElement('img')
+crtimg.src=slidersrc;
+drp.append(crtimg)
+// console.log(drp)
+let tarimg = document.createElement('img')
+tarimg.src=tarsrc;
+tar.append(tarimg)
+
 
 var flag2 = false; // 标记是否正在进行拖拽
 var touchOffset = { x: 0, y: 0 }; // 记录触摸点和元素位置的差值
@@ -86,14 +98,14 @@ drp.addEventListener('touchstart', function (event) {
 });
 
 document.addEventListener('touchmove', function (event) {
-
+    console.log(tar.offsetLeft)
     if (flag2) {
         var touch = event.targetTouches[0];
         // 设置拖拽元素的位置
         if ((touch.clientX - touchOffset.x) < 0) {
             drp.style.left = 0 + 'px';
-        } else if ((touch.clientX - touchOffset.x) > prewidth - drpwidth) {
-            drp.style.left = prewidth - drpwidth + 'px';
+        } else if ((touch.clientX - touchOffset.x) > prewidth-drpwidth) {
+            drp.style.left = prewidth-drpwidth+ 'px';
         } else {
             drp.style.left = (touch.clientX - touchOffset.x) + 'px';
             tar.style.left = (touch.clientX - touchOffset.x) + 'px';
@@ -104,14 +116,13 @@ document.addEventListener('touchmove', function (event) {
 
 document.addEventListener('touchend', function (event) {
     flag2 = false;
-    if (tar.offsetLeft > 100 && tar.offsetLeft < 120) {
-        tar.style.left = '115px';
+    if (tar.offsetLeft > 220 && tar.offsetLeft < 250) {
         mask.style = 'display:flex';
         setTimeout(function () {
             mask.style = 'display:none';
             slider.innerHTML = `
             <div class="binggo">
-            <img src="cons/icon-checked.svg" alt="">
+            <img src="https://www.starbucks.com.cn/assets/icons/icon-done.svg" alt="">
             <span>已验证</span>
           </div>
                         `
