@@ -17,7 +17,8 @@ new Vue({
         SearchValue: '',
         map: null,
         nearBy: [],
-        nearMark: []
+        nearMark: [],
+        active: 1
     },
     watch: {
         'area.district': function (value) {
@@ -59,7 +60,7 @@ new Vue({
             AMapLoader.load({
                 "key": "69611689f3f0a1172ba9eb0720bac7f7",              // 申请好的Web端开发者Key，首次调用 load 时必填
                 "version": "2.0",
-                "plugins": ['AMap.DistrictSearch', 'AMap.PlaceSearch'],           // 需要使用的的插件列表，如比例尺'AMap.Scale'等
+                "plugins": ['AMap.DistrictSearch', 'AMap.PlaceSearch', 'AMap.Geolocation', 'AMap.ToolBar'],           // 需要使用的的插件列表，如比例尺'AMap.Scale'等
                 "AMapUI": {             // 是否加载 AMapUI，缺省不加载
                     "version": '1.1',   // AMapUI 版本
                     "plugins":['overlay/SimpleMarker'],       // 需要加载的 AMapUI ui插件
@@ -69,6 +70,8 @@ new Vue({
                 },
             }).then((AMap)=>{
                 this.map = new AMap.Map('Map', { showBuildingBlock: true });
+                this.map.addControl(new AMap.ToolBar({ position : { bottom: '60px', right: '15px' }}));
+                this.map.addControl(new AMap.Geolocation());
             })
         },
         // 查询条件地图位置
@@ -87,10 +90,9 @@ new Vue({
             const that = this;
             AMap.plugin(["AMap.PlaceSearch"], function() {
                 var placeSearch = new AMap.PlaceSearch({ pageSize: 20, pageIndex: 1, autoFitView: true });
-                placeSearch.searchNearBy('', centerPoint, 200, function(status, result) {
+                placeSearch.searchNearBy('星巴克', centerPoint, 2000, function(status, result) {
                     // that.map.clearMap();
                     that.nearMark.forEach(item => {
-                        console.log(item);
                         that.map.remove(item);
                     })
                     that.nearBy = result.info === 'OK' ? result.poiList.pois : [];
