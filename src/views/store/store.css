@@ -18,11 +18,14 @@
 #app .Search .Search_top span {
   margin: 0 5px;
 }
+#app .Search .van-search__action {
+  color: #00A862;
+}
 #app #Map {
   height: 40%;
 }
 #app .List {
-  height: calc(60% - 100px);
+  height: calc(60% - 150px);
   overflow: scroll;
 }
 #app .List li {
@@ -31,18 +34,51 @@
   justify-content: space-between;
   padding: 16px 20px;
 }
-#app .List li i {
-  font-size: 24px;
+#app .List li .Number {
+  width: 24px;
+  position: relative;
+}
+#app .List li .Number span {
+  position: absolute;
+  text-align: center;
+  color: white;
+  width: 100%;
+  font-size: 1rem;
+  z-index: 1;
+}
+#app .List li .Number img {
+  position: relative;
+  right: auto;
+  top: 0;
+  width: 24px;
 }
 #app .List li .van-icon-info-o {
   color: #4DC291;
+  font-size: 24px;
 }
 #app .List li .text {
   margin: 0 10px;
   flex: 1;
 }
-#app .List li .text p {
+#app .List li .text h6 {
+  font-weight: bold;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+}
+#app .List li .text h6 img:first-child {
+  width: 28px;
+}
+#app .List li .text h6 img {
+  margin-left: 4px;
+  width: 40px;
+  vertical-align: middle;
+}
+#app .List li .text p,
+#app .List li .text b {
   margin: 10px 0;
+  color: rgba(0, 0, 0, 0.56);
+  font-size: 14px;
 }
 #app .Loading {
   height: calc(60% - 100px);

@@ -19,23 +19,37 @@
 				</div>
 				<div class="Search_bottom">
 					<van-search v-model="SearchValue" placeholder="请输入地名" show-action>
-						<div slot="action" @click="onSearch">搜索</div>
+						<div slot="action" @click="onSearch">筛选</div>
 					</van-search>
 				</div>
 			</div>
 			<div id="Map"></div>
 			<ul v-show="nearBy.length > 0" class="List">
 				<li v-for="(item, index) in nearBy" :key="index">
-					<van-icon name="location"></van-icon>
+					<div class='Number'>
+            <span>{{ index + 1 }}</span>
+            <img src='https://www.starbucks.com.cn/assets/icons/icon-pin-solid-grey.svg' alt=''>
+          </div>
 					<div class="text">
-						<h6>{{ item.name }}</h6>
+						<h6>
+              {{ item.name }}
+              <img src='https://www.starbucks.com.cn/assets/icons/delivery.png' alt=''>
+              <img src='https://www.starbucks.com.cn/assets/icons/icon-mop.svg' alt=''>
+            </h6>
 						<p>{{ item.address }}</p>
-						<b>{{ item.distance }}m</b>
+						<b>{{ item.distance }} km</b>
 					</div>
 					<van-icon name="info-o"></van-icon>
 				</li>
 			</ul>
-			<div v-show="nearBy.length == 0" class="Loading">附近暂无内容</div>
+			<div v-show="nearBy.length == 0" class="Loading">本区暂无门店</div>
+      <van-tabbar v-model="active" inactive-color="#000">
+        <van-tabbar-item icon="wap-home-o" url='./home.html'>首页</van-tabbar-item>
+        <van-tabbar-item icon="shop-collect-o" url='./store.html'>门店</van-tabbar-item>
+        <van-tabbar-item icon="user-o" url='./account.html'>我的账户</van-tabbar-item>
+        <van-tabbar-item icon="apps-o" url='./menu.html'>菜单</van-tabbar-item>
+        <van-tabbar-item icon="more-o" url='./more.html'>更多</van-tabbar-item>
+      </van-tabbar>
 			<van-popup v-model="DialogShow" position="bottom">
 				<van-area
 					ref="myArea"
