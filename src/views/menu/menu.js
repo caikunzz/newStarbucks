@@ -1262,3 +1262,4 @@ let arr = [];
   for (let i = 0; i < list.length; i++) {
     list[i].style.height = list[i].offsetWidth + 'px';
   }
+  //01
