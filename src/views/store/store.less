@@ -1,0 +1,70 @@
+@import "//cdn.suoluomei.com/common/js2.0/vant/v2.12/index.css";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .Search {
+    padding: 16px 16px 8px;
+
+    .Search_top {
+      display: flex;
+      align-items: center;
+
+      span {
+        margin: 0 5px;
+      }
+    }
+
+  }
+
+  #Map {
+    height: 40%;
+  }
+
+  .List {
+    height: calc(60% - 100px);
+    overflow: scroll;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+
+      i {
+        font-size: 24px;
+      }
+
+      .van-icon-info-o {
+        color: #4DC291;
+      }
+
+      .text {
+        margin: 0 10px;
+        flex: 1;
+
+       p {
+         margin: 10px 0;
+       }
+
+      }
+
+    }
+
+  }
+
+  .Loading {
+    height: calc(60% - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+

@@ -1,0 +1,2 @@
+
+import './reg.css';

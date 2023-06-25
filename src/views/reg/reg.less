@@ -1,0 +1,112 @@
+html,body{
+    width: 100vw;
+    min-height: 100vh;
+    // height: 100vh;
+    background: #f7f7f7;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    position: relative;
+    padding-bottom: 15vw;
+}
+.nav-top{
+    box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.3);
+    padding-bottom: 0 !important;
+    background-color: #fff;
+    ul{
+        padding: 12px 0 6px 0;
+        li{
+            margin-right: 3vw !important;
+            position: relative;
+
+            a{
+                color: rgba(0, 0, 0, 0.56);
+            }
+            .active{
+                color: #000;
+                font-weight: bold;
+            }
+            &::after{
+                content: '';
+                width: 100%;
+                height: 3px;
+                background-color: #00A862;
+                position: absolute;
+                left: 0;
+                bottom: -1vw;
+                display: none;
+            }
+            &:nth-child(2)::after{
+                display: block;
+            }
+        }
+    }
+}
+
+.content{
+    width: 100%;
+    padding: 5vw 0 8vw 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.box{
+    box-sizing: border-box;
+    padding: 0 1rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.app-reg{
+    h2{
+        font-size: 1.5rem;
+        margin-bottom: 24px;
+    }
+    p{
+        margin-bottom: 24px;
+        font-size: 1rem;
+        letter-spacing: 0.4px;
+        a{
+            color:#00A862
+        }
+    }
+}
+.fix{
+    position: absolute;
+    width: 40%;
+    right: 5vw;
+    bottom: 20vw;
+}
+
+
+
+
+.footer{
+    position: absolute;
+    box-sizing: border-box;
+    padding: 0 1rem;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 15vw;
+    background-color: #fff;
+    ul{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: space-around;
+        align-items: center;
+        li{
+            a{
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                font-size: .8rem;
+            }
+        }
+    }
+}

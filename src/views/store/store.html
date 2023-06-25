@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="./store.css">
+		<title>Document</title>
+		<script src="https://webapi.amap.com/loader.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div class="Search">
+				<div class="Search_top" @click="DialogShow = !DialogShow">
+					<van-icon name="location" color="#00A862"></van-icon>
+					<span>{{ area.province }}</span>
+					<span>{{ area.city }}</span>
+					<span>{{ area.district }}</span>
+					<van-icon name="arrow-down"></van-icon>
+				</div>
+				<div class="Search_bottom">
+					<van-search v-model="SearchValue" placeholder="请输入地名" show-action>
+						<div slot="action" @click="onSearch">搜索</div>
+					</van-search>
+				</div>
+			</div>
+			<div id="Map"></div>
+			<ul v-show="nearBy.length > 0" class="List">
+				<li v-for="(item, index) in nearBy" :key="index">
+					<van-icon name="location"></van-icon>
+					<div class="text">
+						<h6>{{ item.name }}</h6>
+						<p>{{ item.address }}</p>
+						<b>{{ item.distance }}m</b>
+					</div>
+					<van-icon name="info-o"></van-icon>
+				</li>
+			</ul>
+			<div v-show="nearBy.length == 0" class="Loading">附近暂无内容</div>
+			<van-popup v-model="DialogShow" position="bottom">
+				<van-area
+					ref="myArea"
+					:area-list="areaList"
+					@confirm="DialogConfirm"
+					@cancel="DialogShow = false"
+				/>
+			</van-popup>
+		</div>
+	</body>
+	<script src="//cdn.suoluomei.com/common/js2.0/vue/v2.5.16/vue.js"></script>
+	<script src="//cdn.suoluomei.com/common/js2.0/vant/v2.12/vant.min.js"></script>
+	<script type="module" src="./store.js"></script>
+</html>
